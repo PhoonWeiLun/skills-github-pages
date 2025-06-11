@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: url("Image/image.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+#status {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-gap: 20px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.color-button {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  opacity: 0.8;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.red { background-color: rgb(255, 0, 0); }
+.green { background-color: rgb(0, 255, 0); }
+.blue { background-color: rgb(0, 0, 250); }
+.yellow { background-color: rgb(236, 253, 0); }
+.pink { background-color: rgb(247, 0, 123); }
+.orange { background-color: rgb(236, 126, 0); }
+
+#start-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#settings {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.no-background {
+  background: none !important;
+  background-color: #111 !important; /* 设置为深色背景以适配按钮颜色 */
+}
+
+/* 按钮点击动画 */
+.color-button.active {
+  opacity: 1;
+  filter: brightness(1.4);
+  animation: pulse 0.2s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes flash {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+}
+
+/* 页面失败动画 */
+.flash-fail {
+  animation: failFlash 1s ease;
+}
+
+@keyframes failFlash {
+  0% { background-color: red; }
+  100% { background-color: inherit; }
+}
+
+#fail-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 0, 0, 0.6);
+  pointer-events: none; /* 不阻止点击 */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+#fail-overlay.active {
+  opacity: 1;
+}
+
